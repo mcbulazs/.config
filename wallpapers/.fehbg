@@ -1,0 +1,4 @@
+#!/bin/bash
+
+@echo off
+feh --no-fehbg --bg-fill "$HOME/.config/wallpapers/wp1.jpg" 
