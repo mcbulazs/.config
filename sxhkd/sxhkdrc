@@ -13,6 +13,7 @@ super + space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
 #
 #   pavucontrol hotkeys
 #
@@ -44,6 +45,14 @@ shift + XF86AudioLowerVolume
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+#
+# dunst hotkeys
+#
+
+# close first notification
+super + c + n
+    dunstctl close
+
 
 
 
@@ -56,8 +65,8 @@ super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }c
-	bspc node -{c,k}
+super + shift + c
+	bspc node -k
 
 # alternate between the tiled and monocle layout
 #super + m
@@ -68,8 +77,8 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+#super + g
+#	bspc node -s biggest.window
 
 #
 # state/flags
@@ -96,8 +105,8 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+#super + {_,shift + }c
+#	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
