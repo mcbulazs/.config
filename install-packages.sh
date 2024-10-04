@@ -37,8 +37,39 @@ confirmation "Do you want to install personal config packages?" && {
         done
         [[ -f ./dotfiles/.xinitrc ]] && cp ./dotfiles/.xinitrc ~/.xinitrc
     }
-        
-    
+}
+
+#zsh install
+confirmation "Do you want to install zsh?" && {
+    #installing the base zsh
+    sudo pacman -S zsh
+    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -- --skip-chsh
+    #installing plugins
+    confirmation "Do you want to install zsh plugins?" && {
+        git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+        git clone https://github.com/chrissicool/zsh-256color.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-256color
+    }
+           
+    confirmation "Do you want to copy .zshrc?" && {
+        copyzshrc=0
+        while [[ $copyzshrc -eq 0 && -f ~/.zshrc ]]; do
+            if confirmation "Do you want to save previous .zshrc to .zshrc.orig?"; then
+                mv ~/.zshrc ~/.zshrc.orig
+                copyzshrc=1
+            else
+                if confirmation "Are you really sure, this will delete previous .zshrc?"; then
+                    copyzshrc=1
+                    rm ~/.zshrc
+                fi
+
+            fi
+        done
+        [[ -f ./dotfiles/.zshrc ]] && cp ./dotfiles/.zshrc ~/.zshrc
+    }
+    confirmation "Do you want to make zsh your default shell?" && {
+        sudo chsh /usr/bin/zsh
+    }
 }
 
 #yay installation
@@ -66,31 +97,5 @@ confirmation "Do you want to install other yay packages?" && {
     [[ $packages != [nN] && $packages != [nN][oO] ]] && sudo yay -S --needed "$packages"
 }
 
-#zsh install
-confirmation "Do you want to install zsh?" && {
-    #installing the base zsh
-    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" &&
-    #installing plugins
-    confirmation "Do you want to install zsh plugins?" && {
-        git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
-        git clone https://github.com/chrissicool/zsh-256color.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-256color
-    }
-           
-    confirmation "Do you want to copy .zshrc?" && {
-        copyzshrc=0
-        while [[ $copyzshrc -eq 0 && -f ~/.zshrc ]]; do
-            if confirmation "Do you want to save previous .zshrc to .zshrc.orig?"; then
-                mv ~/.zshrc ~/.zshrc.orig
-                copyzshrc=1
-            else
-                if confirmation "Are you really sure, this will delete previous .zshrc?"; then
-                    copyzshrc=1
-                    rm ~/.zshrc
-                fi
 
-            fi
-        done
-        [[ -f ./dotfiles/.zshrc ]] && cp ./dotfiles/.zshrc ~/.zshrc
-    }
-}
+echo "Congratulation you have installed the packages, now copy the contents of this dir to your .config and reboot. Have Fun!"

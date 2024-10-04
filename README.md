@@ -17,11 +17,7 @@ git clone --recurse-submodules https://github.com/mcbulazs/.config.git config-gi
 cd config-git
 ./install-packages.sh
 cp -r ./* ~/.config 
-```
-
-After installation you have to restart your display manager or if you arent in any, run:
-```sh
-startx
+sudo reboot now
 ```
 
 ## Packages
