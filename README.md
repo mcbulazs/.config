@@ -13,7 +13,7 @@ The `install-packages.sh` will guide you through everything, if you accept them 
 > This installation WILL overwrite your previous config if not being careful, so please read everything the terminal prompts
 
 ```sh
-git clone https://github.com/mcbulazs/.config.git config-git
+git clone --recurse-submodules https://github.com/mcbulazs/.config.git config-git
 cd config-git
 ./install-packages.sh
 cp -r ./* ~/.config 
