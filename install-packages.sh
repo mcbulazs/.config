@@ -11,7 +11,7 @@ confirmation "This will take several minutes. Are you sure you want to continue?
 
 #must have packages + base-devel
 confirmation "Do you want to install must-have packages?" &&
-    sudo pacman -S --needed git zip unzip make fzf less iwd neofetch pulseaudio ripgrep vim wget xclip xdg-utils xorg xorg-xinit make base-devel
+    sudo pacman -S --needed git zip unzip make fzf less man-db iwd neofetch pulseaudio ripgrep vim wget xclip xdg-utils xorg xorg-xinit make base-devel
 
 #BLUETOOTH
 confirmation "Do you want to install BLUETOOTH specific packages?" &&
