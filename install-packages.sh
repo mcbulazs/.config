@@ -43,7 +43,7 @@ confirmation "Do you want to install personal config packages?" && {
 confirmation "Do you want to install zsh?" && {
     #installing the base zsh
     sudo pacman -S zsh
-    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -- --skip-chsh
+    sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -- --skip-chsh --unattended
     #installing plugins
     confirmation "Do you want to install zsh plugins?" && {
         git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
@@ -68,7 +68,7 @@ confirmation "Do you want to install zsh?" && {
         [[ -f ./dotfiles/.zshrc ]] && cp ./dotfiles/.zshrc ~/.zshrc
     }
     confirmation "Do you want to make zsh your default shell?" && {
-        sudo chsh /usr/bin/zsh
+        sudo chsh -s /usr/bin/zsh
     }
 }
 
