@@ -20,7 +20,7 @@ confirmation "Do you want to install BLUETOOTH specific packages?" &&
 
 #config packages
 confirmation "Do you want to install personal config packages?" && {
-    sudo pacman -S --needed bspwm sxhkd polybar alacritty dunst pavucontrol rofi ranger neovim picom feh flameshot ttf-jetbrains-mono
+    sudo pacman -S --needed bspwm sxhkd polybar alacritty dunst pavucontrol rofi ranger neovim picom feh flameshot ttf-jetbrains-mono-nerd
     confirmation "Do you want to copy .xinitrc (autostart package specific daemons)?" && {
         copyxinitrc=0
         while [[ $copyxinitrc -eq 0 && -f ~/.xinitrc ]]; do
@@ -68,7 +68,7 @@ confirmation "Do you want to install zsh?" && {
         [[ -f ./dotfiles/.zshrc ]] && cp ./dotfiles/.zshrc ~/.zshrc
     }
     confirmation "Do you want to make zsh your default shell?" && {
-        sudo chsh -s /usr/bin/zsh
+        chsh -s /usr/bin/zsh
     }
 }
 
@@ -94,7 +94,7 @@ confirmation "Do you want to install other yay packages?" && {
     echo -e "\nYou can get list of available packages here:"
     echo -e "https://aur.archlinux.org/packages"
     read -p "List packages you want to install by yay (separated by space) [type n if you don't want any]: " packages
-    [[ $packages != [nN] && $packages != [nN][oO] ]] && sudo yay -S --needed "$packages"
+    [[ $packages != [nN] && $packages != [nN][oO] ]] && yay -S --needed "$packages"
 }
 
 

@@ -36,6 +36,7 @@ sudo reboot now
 - `picom`
 - `feh`
 - `flameshot`
+- `ttf-jetbrains-mono-nerd`
 
 ### "Must" have packages
 
@@ -45,6 +46,7 @@ sudo reboot now
 - `make`
 - `fzf`
 - `less`
+- `man-db`
 - `iwd`
 - `neofetch`
 - `pulseaudio`
