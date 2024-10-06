@@ -3,6 +3,10 @@
 As this is my personal config the packages are the basic packages I need, so feel free to check and change the installer and the configuration.
 Also the NeoVim config is under my name (bulazs) you should change it to your own.
 
+## Preview
+
+![preview](./config.png)
+
 ## Installation
 
 I only recommend the installation to for fresh profiles or for those who really do know what they are doing.
