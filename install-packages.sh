@@ -11,7 +11,7 @@ confirmation "This will take several minutes. Are you sure you want to continue?
 
 #must have packages + base-devel
 confirmation "Do you want to install must-have packages?" &&
-    sudo pacman -S --needed git zip unzip make fzf less man-db iwd neofetch pulseaudio ripgrep vim wget xclip xdg-utils xorg xorg-xinit make base-devel
+    sudo pacman -S --needed git zip unzip make fzf fd less man-db iwd neofetch pulseaudio ripgrep vim wget xclip xdg-utils xorg xorg-xinit make base-devel
 
 #BLUETOOTH
 confirmation "Do you want to install BLUETOOTH specific packages?" &&
@@ -20,7 +20,7 @@ confirmation "Do you want to install BLUETOOTH specific packages?" &&
 
 #config packages
 confirmation "Do you want to install personal config packages?" && {
-    sudo pacman -S --needed bspwm sxhkd polybar alacritty dunst pavucontrol rofi ranger neovim picom feh flameshot ttf-jetbrains-mono-nerd
+    sudo pacman -S --needed bspwm sxhkd polybar kitty dunst pavucontrol rofi yazi neovim picom feh flameshot ttf-jetbrains-mono-nerd
     confirmation "Do you want to copy .xinitrc (autostart package specific daemons)?" && {
         copyxinitrc=0
         while [[ $copyxinitrc -eq 0 && -f ~/.xinitrc ]]; do

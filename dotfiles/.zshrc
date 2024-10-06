@@ -49,7 +49,7 @@ ENABLE_CORRECTION="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-#ZSH_CUSTOM=/path/to/new-custom-folder
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -102,6 +102,15 @@ if [ -f ~/Projects/grafika/vcpkg/vcpkg-env.sh ]; then
     source ~/Projects/grafika/vcpkg/vcpkg-env.sh
 fi
 
+#yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 export PATH="/snap/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin

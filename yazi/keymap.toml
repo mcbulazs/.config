@@ -1,0 +1,9 @@
+[manager]
+prepend_keymap = [
+    { on = "<BackSpace>", run = "leave", desc = "Go to parent dir" },
+    { on = "<Enter>", run = "enter", desc = "Enter the child directory" },
+    { on = [
+        "g",
+        "f",
+    ], run = "cd ~/favorites", desc = "Enter favorites directory" },
+]
