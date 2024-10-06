@@ -1,0 +1,23 @@
+#ignore all files
+*
+!/.*
+
+#but
+!*/
+!kitty/**
+!bspwm/**
+!dunst/**
+!nvim/**
+!pavucontrol/**
+!picom/**
+!polybar/**
+!yazi/**
+!rofi/**
+!sxhkd/**
+!wallpapers/**
+!flameshot/**
+
+!dotfiles/**
+!install-packages.sh
+!/README.md
+!/config.png

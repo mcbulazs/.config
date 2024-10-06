@@ -10,9 +10,11 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 #colors
+#bright purple = #EE34D5
+#dark purple = #830EE3
+#redish pinkish = #E30E67
 bspc config focused_border_color '#E30E67'
-bspc config normal_border_color '#830EE3'
-
+bspc config normal_border_color '#EE34D5'
 
 
 

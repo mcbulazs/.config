@@ -20,7 +20,7 @@ confirmation "Do you want to install BLUETOOTH specific packages?" &&
 
 #config packages
 confirmation "Do you want to install personal config packages?" && {
-    sudo pacman -S --needed bspwm sxhkd polybar kitty dunst pavucontrol rofi yazi neovim picom feh flameshot ttf-jetbrains-mono-nerd
+    sudo pacman -S --needed bspwm sxhkd polybar kitty dunst pavucontrol rofi rofi-calc yazi neovim picom feh flameshot ttf-jetbrains-mono-nerd
     confirmation "Do you want to copy .xinitrc (autostart package specific daemons)?" && {
         copyxinitrc=0
         while [[ $copyxinitrc -eq 0 && -f ~/.xinitrc ]]; do

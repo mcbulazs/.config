@@ -9,12 +9,15 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser,window";
+
+	/*modi:                     "drun,calc,run,filebrowser,window";*/
+    modi:                       "drun,calc";
     show-icons:                 true;
     display-drun:               " Apps";
     display-run:                " Run";
     display-filebrowser:        " Files";
     display-window:             " Windows";
+    display-calc:               " Calc";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
@@ -56,7 +59,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    /*width                      800px;*/
+    width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -158,7 +162,8 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    /*lines:                     8;*/
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
