@@ -22,6 +22,13 @@ Print
 #   pavucontrol hotkeys
 #
 
+# brigtness up/Down
+XF86MonBrightnessUp
+    brightnessctl set 10%+
+
+XF86MonBrightnessDown
+    brightnessctl set 10%-
+
 # mute/unmute audio
 super + m
     pactl set-sink-mute @DEFAULT_SINK@ toggle
